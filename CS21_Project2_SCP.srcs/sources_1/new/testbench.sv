@@ -5,11 +5,11 @@ module testbench();
   logic         clk;
   logic         reset;
   
-  logic [31:0]  writedata, dataadr;
+  logic [31:0]  writedata, dataadr, instr;
   logic         memwrite;
   
   // instantiate device to be tested
-  top dut(clk, reset, writedata, dataadr, memwrite);
+  top dut(clk, reset, writedata, dataadr, instr, memwrite);
   
   // initialize test
   initial begin
