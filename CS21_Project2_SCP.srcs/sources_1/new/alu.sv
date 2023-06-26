@@ -4,18 +4,21 @@ module alu(input  logic [31:0] a, b,
            input  logic [2:0]  alucontrol,
            output logic [31:0] result,
            output logic        zero);
-  
-  logic [31:0] condinvb, sum;
-
-  assign condinvb = alucontrol[2] ? ~b : b;
-  assign sum = a + condinvb + alucontrol[2];
  
+  logic [31:0] diff;
+  
+  assign diff = a - b;
+  
   always_comb
-    case (alucontrol[1:0])
-      2'b00: result = a & b;
-      2'b01: result = a | b;
-      2'b10: result = sum;
-      2'b11: result = sum[31];
+    case (alucontrol)
+      3'b000: result = a & b;    // and
+      3'b001: result = a | b;    // or
+      3'b010: result = a + b;    // add
+      3'b011: result = 32'bx;
+      3'b100: result = a & (~b);
+      3'b101: result = a | (~b);
+      3'b110: result = diff;     // sub
+      3'b111: result = diff[31]; // slt
     endcase
 
   assign zero = (result == 32'b0);
