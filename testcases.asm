@@ -14,7 +14,7 @@ addi    $t2, $0, 0x8        # $t2 = 0x8
 srlv    $t1, $t1, $t2       # $t1 = 0xf4510000 >> 0x8 = 0x00f45100
 addi    $t1, $t1, 0
 addi    $t2, $0, 0x24       # $t2 = 0x24
-srlv    $t1, $t1, $t2       # $t1 = 0x00f45100 >> 0x24 = 0x000000f4
+srlv    $t1, $t1, $t2       # $t1 = 0x00f45100 >> 0x4 = 0x000f4510
 addi    $t1, $t1, 0
 
 li      $t1, 0x6723         # $t1 = 0x6723
@@ -31,8 +31,8 @@ addi    $t1, $t1, 0
 addi    $t2, $0, 0xfffe     # $t2 = 0xfffe
 bgtz    $t2, 0x1            # $t2 < 0, do not branch
 addi    $t1, $t1, 1         # $t1 = 3
-addi    $t1, $t1, 2         # $t1 = 5
-addi    $t1, $t1, 0         # loop here
+addi    $t1, $t1, 2         # loop here
+addi    $t1, $t1, 0         # 
 addi    $t2, $0, 3          # $t2 = 3
 bgtz    $t2, 0xfffc         # $t2 > 0, branch back to loop here
 addi    $t1, $t1, 1         # unvisited
