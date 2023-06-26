@@ -11,6 +11,7 @@ module aludec(input  logic [5:0] funct,
       3'b011: alucontrol <= 3'b011;  // xor
       3'b100: alucontrol <= 3'b100;  // lui
       default: case(funct)          // R-type instructions
+          6'b000110: alucontrol <= 3'b101; // srl
           6'b100000: alucontrol <= 3'b010; // add
           6'b100010: alucontrol <= 3'b110; // sub
           6'b100100: alucontrol <= 3'b000; // and
