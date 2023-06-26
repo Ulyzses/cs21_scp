@@ -16,6 +16,7 @@ module maindec(input  logic [5:0] op,
   always_comb
     case(op)
       6'b000000: controls <= 11'b11000000100; // RTYPE
+      6'b010001: controls <= 11'b10100001100; // LI
       6'b011101: controls <= 11'b00010001010; // BGTZ
       6'b100011: controls <= 11'b10100100001; // LW
       6'b101011: controls <= 11'b00101000001; // SW

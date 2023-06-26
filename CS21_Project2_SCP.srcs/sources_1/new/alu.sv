@@ -20,6 +20,7 @@ module alu(input  logic [31:0] a, b,
       4'b0110: result = diff;        // sub
       4'b0111: result = diff[31];    // slt
       4'b1000: result = a[31] !== 0 || a === 0; // bgtz
+      4'b1001: result = b;           // li
     endcase
 
   assign zero = (result == 32'b0);
