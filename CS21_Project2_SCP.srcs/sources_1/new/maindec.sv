@@ -20,6 +20,7 @@ module maindec(input  logic [5:0] op,
       6'b101011: controls <= 11'b00101000001; // SW
       6'b000100: controls <= 11'b00010000011; // BEQ
       6'b001000: controls <= 11'b10100000001; // ADDI
+      6'b001110: controls <= 11'b10100000110; // XOR
       6'b000010: controls <= 11'b00000010001; // J
       default:   controls <= 11'bxxxxxxxxxxx; // illegal op
     endcase
